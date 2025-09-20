@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/ui/LoginUI.java</file>
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/ui/Sistema.java</file>
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/ui/Registro.java</file>
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/db/Conexion.java</file>
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/business/GestorReportes.java</file>
             <file>file:/D:/UTP/CICLO%20VI/SISTEMA%20DE%20SOFWARE/PROYECTO/Proyecto_SS/src/com/mycompany/sistemasoftware/patterns/SistemaGestionFacade.java</file>
+=======
+            <file>file:/C:/Users/Usuario/OneDrive/Desktop/ALEX/UTP/CICLO%20VI/SISTEMAS%20DE%20SOFTWARE/PROYECTO/PROYECTO%20FINAL%20DISEÑO%20DE%20PATRONES/ProyectoFianlDP/ProyectoPatrones_SistemaVentas/ProyectoPatrones-master/src/com/mycompany/trabajodisenopatrones/ui/LoginUI.java</file>
+            <file>file:/C:/Users/Usuario/OneDrive/Desktop/ALEX/UTP/CICLO%20VI/SISTEMAS%20DE%20SOFTWARE/PROYECTO/PROYECTO%20FINAL%20DISEÑO%20DE%20PATRONES/ProyectoFianlDP/ProyectoPatrones_SistemaVentas/ProyectoPatrones-master/src/com/mycompany/trabajodisenopatrones/ui/Sistema.java</file>
+>>>>>>> 5c47ddc0c3e1a63bfb1c1aa73855e545d4dffcfd
         </group>
     </open-files>
 </project-private>
