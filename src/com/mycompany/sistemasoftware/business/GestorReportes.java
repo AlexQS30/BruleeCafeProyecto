@@ -220,9 +220,9 @@ public class GestorReportes {
             encabezado.setHorizontalAlignment(PdfPTable.ALIGN_LEFT); // CORREGIDO
             encabezado.addCell(img);
 
-            ModeloEmpresa conf = datos.getDatosEmpresa();
+            ModeloEmpresa empresa = datos.getDatosEmpresa();
             encabezado.addCell("");
-            encabezado.addCell("Ruc: " + conf.getRuc() + "\nNombre: " + conf.getRepresentanteLegal() + "\nTeléfono: " + conf.getTelefono() + "\nDirección: " + conf.getDireccion() + "\nRazón: " + conf.getRazonSocial());
+            encabezado.addCell("Ruc: " + empresa.getRuc() + "\nNombre: " + empresa.getRepresentanteLegal() + "\nTeléfono: " + empresa.getTelefono() + "\nDirección: " + empresa.getDireccion() + "\nRazón: " + empresa.getRazonSocial());
             encabezado.addCell(fecha);
             doc.add(encabezado);
 
