@@ -1,25 +1,25 @@
 
 package com.mycompany.sistemasoftware.model;
 
-public class ModeloConfig {
+public class ModeloEmpresa {
     private int id;
-    private int ruc;
-    private String nombre;
+    private String ruc;
+    private String representanteLegal;
     private int telefono;
     private String direccion;
-    private String razon;
+    private String razonSocial;
     
-    public ModeloConfig(){
+    public ModeloEmpresa(){
         
     }
 
-    public ModeloConfig(int id, int ruc, String nombre, int telefono, String direccion, String razon) {
+    public ModeloEmpresa(int id, String ruc, String nombre, int telefono, String direccion, String razon) {
         this.id = id;
         this.ruc = ruc;
-        this.nombre = nombre;
+        this.representanteLegal = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.razon = razon;
+        this.razonSocial = razon;
     }
 
     public int getId() {
@@ -30,20 +30,20 @@ public class ModeloConfig {
         this.id = id;
     }
 
-    public int getRuc() {
+    public String getRuc() {
         return ruc;
     }
 
-    public void setRuc(int ruc) {
+    public void setRuc(String ruc) {
         this.ruc = ruc;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getRepresentanteLegal() {
+        return representanteLegal;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setRepresentanteLegal(String representanteLegal) {
+        this.representanteLegal = representanteLegal;
     }
 
     public int getTelefono() {
@@ -62,12 +62,12 @@ public class ModeloConfig {
         this.direccion = direccion;
     }
 
-    public String getRazon() {
-        return razon;
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
-    public void setRazon(String razon) {
-        this.razon = razon;
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
     }
     
     

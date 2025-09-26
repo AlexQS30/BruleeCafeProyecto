@@ -9,13 +9,13 @@ import java.util.List;
 
 // DTO para transportar todos los datos necesarios para generar el PDF de una venta.
 public class ModeloDatosPdfVentaDTO {
-    private ModeloConfig datosEmpresa;
+    private ModeloEmpresa datosEmpresa;
     private ModeloCliente datosCliente;
     private List<ModeloDetalleVenta> detallesVenta;
     private double totalVenta;
     private int idVenta;
 
-    public ModeloDatosPdfVentaDTO(ModeloConfig datosEmpresa, ModeloCliente datosCliente, List<ModeloDetalleVenta> detallesVenta, double totalVenta, int idVenta) {
+    public ModeloDatosPdfVentaDTO(ModeloEmpresa datosEmpresa, ModeloCliente datosCliente, List<ModeloDetalleVenta> detallesVenta, double totalVenta, int idVenta) {
         this.datosEmpresa = datosEmpresa;
         this.datosCliente = datosCliente;
         this.detallesVenta = detallesVenta;
@@ -24,7 +24,7 @@ public class ModeloDatosPdfVentaDTO {
     }
 
     // Getters
-    public ModeloConfig getDatosEmpresa() { return datosEmpresa; }
+    public ModeloEmpresa getDatosEmpresa() { return datosEmpresa; }
     public ModeloCliente getDatosCliente() { return datosCliente; }
     public List<ModeloDetalleVenta> getDetallesVenta() { return detallesVenta; }
     public double getTotalVenta() { return totalVenta; }

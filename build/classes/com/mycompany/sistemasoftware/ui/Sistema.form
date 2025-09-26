@@ -179,7 +179,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="140" y="-20" width="1030" height="170"/>
+          <AbsoluteConstraints x="190" y="-20" width="1000" height="170"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -1608,7 +1608,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                              <Component id="btnActualizarConfig" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnActualizarEmpresa" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
@@ -1649,7 +1649,7 @@
                           <Component id="txtRazonConfig" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="btnActualizarConfig" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnActualizarEmpresa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -1691,7 +1691,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtRazonConfig">
             </Component>
-            <Component class="javax.swing.JButton" name="btnActualizarConfig">
+            <Component class="javax.swing.JButton" name="btnActualizarEmpresa">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Imagenes/Actualizar (2).png"/>
@@ -1699,7 +1699,7 @@
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarConfigActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnActualizarEmpresaActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel32">

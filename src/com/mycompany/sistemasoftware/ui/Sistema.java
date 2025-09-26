@@ -1,7 +1,7 @@
 package com.mycompany.sistemasoftware.ui;
 
 // Imports de la nueva arquitectura de patrones y lógica de negocio
-import com.mycompany.sistemasoftware.model.ModeloConfig;
+import com.mycompany.sistemasoftware.model.ModeloEmpresa;
 import com.mycompany.sistemasoftware.model.ModeloProveedor;
 import com.mycompany.sistemasoftware.model.ModeloCliente;
 import com.mycompany.sistemasoftware.model.ModeloProducto;
@@ -258,7 +258,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
         txtTelefonoConfig = new javax.swing.JTextField();
         txtDireccionConfig = new javax.swing.JTextField();
         txtRazonConfig = new javax.swing.JTextField();
-        btnActualizarConfig = new javax.swing.JButton();
+        btnActualizarEmpresa = new javax.swing.JButton();
         jLabel32 = new javax.swing.JLabel();
         txtIdConfig = new javax.swing.JTextField();
 
@@ -367,7 +367,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 190, 600));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/encabezadoC.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, -20, 1030, 170));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -20, 1000, 170));
 
         jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -1202,11 +1202,11 @@ public class Sistema extends javax.swing.JFrame implements Observer {
 
         jLabel31.setText("RAZON SOCIAL");
 
-        btnActualizarConfig.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar (2).png"))); // NOI18N
-        btnActualizarConfig.setText("ACTUALIZAR");
-        btnActualizarConfig.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Actualizar (2).png"))); // NOI18N
+        btnActualizarEmpresa.setText("ACTUALIZAR");
+        btnActualizarEmpresa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarConfigActionPerformed(evt);
+                btnActualizarEmpresaActionPerformed(evt);
             }
         });
 
@@ -1249,7 +1249,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
                             .addComponent(txtTelefonoConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(241, 241, 241)
-                        .addComponent(btnActualizarConfig))
+                        .addComponent(btnActualizarEmpresa))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(258, 258, 258)
                         .addComponent(jLabel32)))
@@ -1281,7 +1281,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
                     .addComponent(txtDireccionConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtRazonConfig, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
-                .addComponent(btnActualizarConfig)
+                .addComponent(btnActualizarEmpresa)
                 .addGap(72, 72, 72))
         );
 
@@ -1529,14 +1529,14 @@ public class Sistema extends javax.swing.JFrame implements Observer {
     }
 
     private void cargarDatosConfiguracion() {
-        ModeloConfig conf = facade.obtenerConfiguracion();
+        ModeloEmpresa conf = facade.obtenerConfiguracion();
         if (conf != null) {
             txtIdConfig.setText(String.valueOf(conf.getId()));
             txtRucConfig.setText(String.valueOf(conf.getRuc()));
-            txtNombreConfig.setText(conf.getNombre());
+            txtNombreConfig.setText(conf.getRepresentanteLegal());
             txtTelefonoConfig.setText(String.valueOf(conf.getTelefono()));
             txtDireccionConfig.setText(conf.getDireccion());
-            txtRazonConfig.setText(conf.getRazon());
+            txtRazonConfig.setText(conf.getRazonSocial());
         }
     }
 
@@ -1861,19 +1861,19 @@ public class Sistema extends javax.swing.JFrame implements Observer {
         event.numberDecimalKeyPress(evt, txtPrecioPro);
     }//GEN-LAST:event_txtPrecioProKeyTyped
 
-    private void btnActualizarConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarConfigActionPerformed
+    private void btnActualizarEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarEmpresaActionPerformed
         // TODO add your handling code here:
         if (!txtRucConfig.getText().isEmpty() && !txtNombreConfig.getText().isEmpty()) {
-            ModeloConfig conf = new ModeloConfig(
+            ModeloEmpresa conf = new ModeloEmpresa(
                     Integer.parseInt(txtIdConfig.getText()),
-                    Integer.parseInt(txtRucConfig.getText()),
+                    txtRucConfig.getText(),
                     txtNombreConfig.getText(),
                     Integer.parseInt(txtTelefonoConfig.getText()),
                     txtDireccionConfig.getText(),
                     txtRazonConfig.getText()
             );
 
-            if (facade.actualizarConfiguracion(conf)) {
+            if (facade.actualizarEmpresa(conf)) {
                 JOptionPane.showMessageDialog(this, "Datos de la empresa actualizados.");
             } else {
                 JOptionPane.showMessageDialog(this, "Error al actualizar los datos.");
@@ -1881,7 +1881,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
         } else {
             JOptionPane.showMessageDialog(this, "RUC y Nombre son obligatorios.");
         }
-    }//GEN-LAST:event_btnActualizarConfigActionPerformed
+    }//GEN-LAST:event_btnActualizarEmpresaActionPerformed
 
     private void btnConfigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfigActionPerformed
         jTabbedPane1.setSelectedIndex(5);
@@ -1993,7 +1993,7 @@ public class Sistema extends javax.swing.JFrame implements Observer {
     private javax.swing.JTable TableProveedor;
     private javax.swing.JTable TableVenta;
     private javax.swing.JTable TableVentas;
-    private javax.swing.JButton btnActualizarConfig;
+    private javax.swing.JButton btnActualizarEmpresa;
     private javax.swing.JButton btnClientes;
     private javax.swing.JButton btnConfig;
     private javax.swing.JButton btnEditarCliente;

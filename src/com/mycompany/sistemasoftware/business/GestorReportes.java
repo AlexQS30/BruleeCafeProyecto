@@ -16,7 +16,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 // Imports de modelos
 import com.mycompany.sistemasoftware.model.ModeloCliente;
-import com.mycompany.sistemasoftware.model.ModeloConfig;
+import com.mycompany.sistemasoftware.model.ModeloEmpresa;
 import com.mycompany.sistemasoftware.model.ModeloDatosPdfVentaDTO;
 import com.mycompany.sistemasoftware.model.ModeloDetalleVenta;
 import com.mycompany.sistemasoftware.model.ModeloProductoSimple;
@@ -220,9 +220,9 @@ public class GestorReportes {
             encabezado.setHorizontalAlignment(PdfPTable.ALIGN_LEFT); // CORREGIDO
             encabezado.addCell(img);
 
-            ModeloConfig conf = datos.getDatosEmpresa();
+            ModeloEmpresa conf = datos.getDatosEmpresa();
             encabezado.addCell("");
-            encabezado.addCell("Ruc: " + conf.getRuc() + "\nNombre: " + conf.getNombre() + "\nTeléfono: " + conf.getTelefono() + "\nDirección: " + conf.getDireccion() + "\nRazón: " + conf.getRazon());
+            encabezado.addCell("Ruc: " + conf.getRuc() + "\nNombre: " + conf.getRepresentanteLegal() + "\nTeléfono: " + conf.getTelefono() + "\nDirección: " + conf.getDireccion() + "\nRazón: " + conf.getRazonSocial());
             encabezado.addCell(fecha);
             doc.add(encabezado);
 

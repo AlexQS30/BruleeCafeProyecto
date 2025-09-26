@@ -4,7 +4,7 @@ package com.mycompany.sistemasoftware.patterns;
 import com.mycompany.sistemasoftware.model.ModeloVenta;
 import com.mycompany.sistemasoftware.model.ModeloCliente;
 import com.mycompany.sistemasoftware.model.ModeloUsuario;
-import com.mycompany.sistemasoftware.model.ModeloConfig;
+import com.mycompany.sistemasoftware.model.ModeloEmpresa;
 import com.mycompany.sistemasoftware.model.ModeloDetalleVenta;
 import com.mycompany.sistemasoftware.model.ModeloProducto;
 import com.mycompany.sistemasoftware.model.ModeloProveedor;
@@ -31,7 +31,7 @@ public class SistemaGestionFacade {
     private GestorProducto gestorProducto;
     private GestorProveedor gestorProveedor;
     private GestorVenta gestorVenta;
-    private GestorConfiguracion gestorConfig;
+    private GestorConfiguracion gestorEmpresa;
     private GestorReportes gestorReportes;
 
     public SistemaGestionFacade() {
@@ -41,7 +41,7 @@ public class SistemaGestionFacade {
         this.gestorProducto = GestorProducto.getInstance();
         this.gestorProveedor = GestorProveedor.getInstance();
         this.gestorVenta = GestorVenta.getInstance();
-        this.gestorConfig = GestorConfiguracion.getInstance();
+        this.gestorEmpresa = GestorConfiguracion.getInstance();
         this.gestorReportes = GestorReportes.getInstance();
 
     }
@@ -149,12 +149,12 @@ public class SistemaGestionFacade {
     }
 
     // --- MÉTODOS DE FACHADA PARA CONFIGURACIÓN ---
-    public ModeloConfig obtenerConfiguracion() {
-        return gestorConfig.buscarDatos();
+    public ModeloEmpresa obtenerConfiguracion() {
+        return gestorEmpresa.buscarDatos();
     }
 
-    public boolean actualizarConfiguracion(ModeloConfig config) {
-        return gestorConfig.modificarDatos(config);
+    public boolean actualizarEmpresa(ModeloEmpresa config) {
+        return gestorEmpresa.modificarDatosEmpresa(config);
     }
 
     public void generarReporteProductosExcel() {
@@ -167,7 +167,7 @@ public class SistemaGestionFacade {
 
     public void generarPdfVenta(int idVenta, int dniCliente, List<ModeloDetalleVenta> detalles, double totalVenta) {
         // 1. Obtener datos de la empresa
-        ModeloConfig config = gestorConfig.buscarDatos();
+        ModeloEmpresa config = gestorEmpresa.buscarDatos();
 
         // 2. Obtener datos del cliente
         ModeloCliente cliente = gestorCliente.buscarCliente(dniCliente);

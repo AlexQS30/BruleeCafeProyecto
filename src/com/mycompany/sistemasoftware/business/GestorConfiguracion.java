@@ -7,7 +7,7 @@ package com.mycompany.sistemasoftware.business;
  
 
 import com.mycompany.sistemasoftware.db.Conexion;
-import com.mycompany.sistemasoftware.model.ModeloConfig;
+import com.mycompany.sistemasoftware.model.ModeloEmpresa;
 import com.mycompany.sistemasoftware.patterns.Observer;
 import com.mycompany.sistemasoftware.patterns.Subject;
 import java.sql.Connection;
@@ -63,42 +63,42 @@ public class GestorConfiguracion implements Subject {
      * Asume que solo hay una fila de configuración, usualmente con id=1.
      * @return Un objeto ModeloConfig con los datos, o null si hay un error.
      */
-    public ModeloConfig buscarDatos() {
-        ModeloConfig config = null;
-        String sql = "SELECT * FROM config LIMIT 1"; // Asumimos que solo hay una fila
+    public ModeloEmpresa buscarDatos() {
+        ModeloEmpresa empresa = null;
+        String sql = "SELECT * FROM empresa LIMIT 1"; // Asumimos que solo hay una fila
         Connection con = Conexion.getInstance().getConexion();
         try (PreparedStatement ps = con.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
-                config = new ModeloConfig();
-                config.setId(rs.getInt("id"));
-                config.setRuc(rs.getInt("ruc"));
-                config.setNombre(rs.getString("nombre"));
-                config.setTelefono(rs.getInt("telefono"));
-                config.setDireccion(rs.getString("direccion"));
-                config.setRazon(rs.getString("razon"));
+                empresa = new ModeloEmpresa();
+                empresa.setId(rs.getInt("id"));
+                empresa.setRuc(rs.getString("ruc"));
+                empresa.setRepresentanteLegal(rs.getString("representantelegal"));
+                empresa.setTelefono(rs.getInt("telefono"));
+                empresa.setDireccion(rs.getString("direccion"));
+                empresa.setRazonSocial(rs.getString("razonsocial"));
             }
         } catch (SQLException e) {
             System.err.println("Error al buscar datos de configuración: " + e.toString());
         }
-        return config;
+        return empresa;
     }
 
     /**
      * Modifica los datos de configuración de la empresa.
-     * @param config El objeto ModeloConfig con los nuevos datos.
+     * @param empresa El objeto ModeloConfig con los nuevos datos.
      * @return true si la modificación fue exitosa.
      */
-    public boolean modificarDatos(ModeloConfig config) {
-        String sql = "UPDATE config SET ruc=?, nombre=?, telefono=?, direccion=?, razon=? WHERE id=?";
+    public boolean modificarDatosEmpresa(ModeloEmpresa empresa) {
+        String sql = "UPDATE empresa SET ruc=?, representantelegal=?, telefono=?, direccion=?, razonsocial=? WHERE id=?";
         Connection con = Conexion.getInstance().getConexion();
         try (PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setInt(1, config.getRuc());
-            ps.setString(2, config.getNombre());
-            ps.setInt(3, config.getTelefono());
-            ps.setString(4, config.getDireccion());
-            ps.setString(5, config.getRazon());
-            ps.setInt(6, config.getId());
+            ps.setString(1, empresa.getRuc());
+            ps.setString(2, empresa.getRepresentanteLegal());
+            ps.setInt(3, empresa.getTelefono());
+            ps.setString(4, empresa.getDireccion());
+            ps.setString(5, empresa.getRazonSocial());
+            ps.setInt(6, empresa.getId());
             ps.execute();
             notifyObservers(); // Notificar a las vistas del cambio
             return true;
